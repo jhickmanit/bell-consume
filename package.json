@@ -3,9 +3,39 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "npm run prod",
+    "build": "npm-run-all clean transpile",
+    "server": "node -r dotenv/config ./dist-server/bin/www",
+    "dev": "NODE_ENV=development npm-run-all build server",
+    "prod": "NODE_ENV=production npm-run-all build server",
+    "transpile": "babel ./server --out-dir dist-server --ignore ./node_modules,./package.json,./npm-debug.log,./package-lock.json,./eslintrc.js,./.gitignore --copy-files --include-dotfiles",
+    "clean": "rimraf dist-server",
+    "watch:dev": "nodemon"
+  },
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "server/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [ "@babel/transform-runtime" ]
   },
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/runtime": "^7.9.6",
+    "@onfido/api": "^1.1.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.5",
     "debug": "~4.1.1",
@@ -14,9 +44,16 @@
     "express-session": "^1.17.1",
     "http-errors": "~1.7.3",
     "morgan": "~1.10.0",
+    "nodemon": "^2.0.3",
+    "npm-run-all": "^4.1.5",
+    "openid-client": "^3.15.0",
     "pug": "2.0.4"
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^6.8.0",
+    "rimraf": "^3.0.2"
   }
 }

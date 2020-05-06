@@ -3,24 +3,28 @@
 /**
  * Module dependencies.
  */
+"use strict";
 
-var app = require('../app');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _app = _interopRequireDefault(require("../app"));
+
+var _http = require("http");
+
 var debug = require('debug')('bell-consume:server');
-var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
 
+_app["default"].set('port', port);
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
 
+var server = (0, _http.createServer)(_app["default"]);
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -28,7 +32,6 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -48,43 +51,40 @@ function normalizePort(val) {
 
   return false;
 }
-
 /**
  * Event listener for HTTP server "error" event.
  */
+
 
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port; // handle specific listen errors with friendly messages
 
-  // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
       process.exit(1);
       break;
+
     case 'EADDRINUSE':
       console.error(bind + ' is already in use');
       process.exit(1);
       break;
+
     default:
       throw error;
   }
 }
-
 /**
  * Event listener for HTTP server "listening" event.
  */
 
+
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
