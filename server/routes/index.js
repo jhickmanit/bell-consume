@@ -43,7 +43,6 @@ router.get('/', async function(req, res) {
                 return
             })
     }
-    return
 })
 
 router.post('/cb', function(req, res) {
