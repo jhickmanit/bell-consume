@@ -12,6 +12,9 @@ block content
       .onfido-sdk-ui-Theme-footer {
         display: none;
       }
+      .onfido-sdk-ui-Button-button-primary {
+        margin-bottom: 20px !important;
+      }
     link(rel='stylesheet', href='https://assets.onfido.com/web-sdk-releases/5.9.0/style.css')
   body
     script(type='text/javascript', src='https://assets.onfido.com/web-sdk-releases/5.9.0/onfido.min.js')
@@ -40,6 +43,9 @@ block content
             }
             $.ajax(settings).done(function (response) {
               console.log(response);
+              if (response.redirect !== '') {
+                window.location.href = response.redirect
+              }
             })
           }
         })

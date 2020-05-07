@@ -87,9 +87,14 @@ router.get('/complete', function(req, res) {
         reportNames: ['facial_similarity_photo'],
     }).then(response => {
         res.locals.message = response
-        res.render('complete')
+        res.status(200).json({redirect: process.env.APP_URL + 'done'})
         return
     })
+})
+
+router.get('/done', function(req, res) {
+    res.render('complete')
+    return
 })
 
 export default router
