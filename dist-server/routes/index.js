@@ -76,9 +76,6 @@ router.get('/', /*#__PURE__*/function () {
             });
 
           case 18:
-            return _context.abrupt("return");
-
-          case 19:
           case "end":
             return _context.stop();
         }
