@@ -9,22 +9,22 @@ var svc = new Service({
         value: 'http://localhost:3000/'
     }, {
         name: 'OIDC_DISCOVER',
-        value: 'https://horto.okta.com/oauth2/aus3t13z4vrUJhRBZ357/.well-known/oauth-authorization-server'
+        value: 'https://someoktaurl/oauth2/someuniqueid/.well-known/oauth-authorization-server'
     }, {
         name: 'OIDC_CALLBACK',
         value: 'http://localhost:3000/cb'
     }, {
         name: 'OIDC_CLIENT_ID',
-        value: '0oa3t13ox6zgloeIZ357'
+        value: 'OktaClientID'
     }, {
         name: 'OIDC_CLIENT_SECRET',
-        value: 'aQNT40CxMHWha9gzh1JiFMVBwoOZU0wGUgrGZKxN'
+        value: 'OktaClientSecret'
     }, {
         name: 'SESSION_SECRET',
         value: 'sssshhhhh'
     }, {
         name: 'ONFIDO_API_TOKEN',
-        value: 'api_live.FbjhjzG2NbN.IndO-X64NoGF8y4hKHSiInRX4hHabESp'
+        value: 'OnfidoAPIToken'
     }, {
         name: 'PORT',
         value: '3000'
