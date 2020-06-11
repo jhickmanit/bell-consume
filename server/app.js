@@ -5,6 +5,8 @@ import logger from 'morgan'
 import session from 'express-session'
 import { generators } from 'openid-client'
 import { Onfido } from '@onfido/api'
+import dotenv from 'dotenv'
+dotenv.config()
 
 import indexRouter from './routes/index'
 

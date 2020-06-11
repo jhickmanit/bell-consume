@@ -7,7 +7,6 @@ import app from '../app'
 var debug = require('debug')('bell-consume:server')
 import { createServer } from 'http'
 
-
 /**
  * Get port from environment and store in Express.
  */

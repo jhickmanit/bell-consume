@@ -15,9 +15,9 @@ block content
       .onfido-sdk-ui-Button-button-primary {
         margin-bottom: 20px !important;
       }
-    link(rel='stylesheet', href='https://assets.onfido.com/web-sdk-releases/5.9.0/style.css')
+    link(rel='stylesheet', href='https://assets.onfido.com/web-sdk-releases/5.9.2/style.css')
   body
-    script(type='text/javascript', src='https://assets.onfido.com/web-sdk-releases/5.9.0/onfido.min.js')
+    script(type='text/javascript', src='https://assets.onfido.com/web-sdk-releases/5.9.2/onfido.min.js')
     script(type='text/javascript', src='https://code.jquery.com/jquery-3.5.1.min.js')
     script.
       $(document).ready(function () {
@@ -32,10 +32,6 @@ block content
               uploadFallback: false,
             },
           }],
-          language: {
-            locale: 'en_US',
-            phrases: { face: intro: { subtitle: "We'll compare it with your biometrics on file"}}
-          }
           onComplete: function (data) {
             var settings = {
               "crossDomain": true,
